@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Novel" (
+CREATE TABLE "College" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
     "image" TEXT,
@@ -8,9 +8,9 @@ CREATE TABLE "Novel" (
 );
 
 -- CreateTable
-CREATE TABLE "Author" (
+CREATE TABLE "State" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "novelId" TEXT,
-    CONSTRAINT "Author_novelId_fkey" FOREIGN KEY ("novelId") REFERENCES "Novel" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    "collegeId" TEXT,
+    CONSTRAINT "State_collegeId_fkey" FOREIGN KEY ("collegeId") REFERENCES "College" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );

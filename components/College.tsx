@@ -1,6 +1,6 @@
-import { DELETE_NOVEL } from "@/graphql/mutations";
-import { GET_NOVELS } from "@/graphql/queries";
-import { INovel } from "@/typings";
+import { DELETE_COLLEGE } from "@/graphql/mutations";
+import { GET_COLLEGES } from "@/graphql/queries";
+import { ICollege } from "@/typings";
 import { useMutation } from "@apollo/client";
 import Link from "next/link";
 import React from "react";
@@ -8,28 +8,28 @@ import React from "react";
 export const BASE_URL = process.env.NEXT_PUBLIC_URL;
 
 type Props = {
-	novel: INovel;
+	college: ICollege;
 };
 
-export const Novel = ({ novel }: Props) => {
-	const [deleteNovel] = useMutation(DELETE_NOVEL, {
-		refetchQueries: [{ query: GET_NOVELS }],
+export const College = ({ college }: Props) => {
+	const [deleteCollege] = useMutation(DELETE_COLLEGE, {
+		refetchQueries: [{ query: GET_COLLEGES }],
 	});
 	return (
 		<article className="flex flex-col p-4  bg-slate-200 dark:bg-indigo-800 hover:scale-110 shadow-sm hover:shadow-lg hover:bg-slate-300 transition duration-300 ease-out text-red ">
 			{/* image */}
-			{novel.image && (
+			{college.image && (
 				<div>
 					<img
-						src={novel.image}
-						alt={novel.title}
+						src={college.image}
+						alt={college.title}
 						className="h-56 w-full object-contain rounded-t-lg shadow-md"
 					/>
 				</div>
 			)}
 
 			{/*title  */}
-			<h1 className="font-bold text-xl my-2">{novel.title}</h1>
+			<h1 className="font-bold text-xl my-2">{college.title}</h1>
 			{/* description */}
 			<p className="text-xs my-2 line-clamp-3">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
@@ -40,18 +40,18 @@ export const Novel = ({ novel }: Props) => {
 			{/* source and date */}
 			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
 				<p className="text-red text-lg">
-					Authors :{novel?.authors.length}
+					States :{college?.states.length}
 				</p>
 			</div>
 			<Link
-				href={`${BASE_URL}/novel/${novel.id}`}
+				href={`${BASE_URL}/college/${college.id}`}
 				className="bg-orange-500 mt-5 p-2 rounded-lg"
 			>
 				Read More
 			</Link>
 
 			<button
-				onClick={() => deleteNovel({ variables: { id: novel.id } })}
+				onClick={() => deleteCollege({ variables: { id: college.id } })}
 				className="bg-red-500 mt-5 p-2 rounded-lg"
 			>
 				Delete

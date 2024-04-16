@@ -1,7 +1,7 @@
 "use client";
-import { ADD_AUTHOR, DELETE_AUTHOR, UPDATE_NOVEL } from "@/graphql/mutations";
-import { GET_NOVEL } from "@/graphql/queries";
-import { INovel } from "@/typings";
+import { ADD_STATE, DELETE_STATE, UPDATE_COLLEGE } from "@/graphql/mutations";
+import { GET_COLLEGE } from "@/graphql/queries";
+import { ICollege } from "@/typings";
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 type Props = {
@@ -10,41 +10,41 @@ type Props = {
 	};
 };
 
-const Novel = ({ params: { id } }: Props) => {
+const College = ({ params: { id } }: Props) => {
 	const [title, setTitle] = useState("");
 	const [url, setUrl] = useState("");
 	const [name, setName] = useState("");
 
-	const { data, loading, error } = useQuery(GET_NOVEL, {
+	const { data, loading, error } = useQuery(GET_COLLEGE, {
 		variables: { id },
 	});
-	const [addAuthor] = useMutation(ADD_AUTHOR, {
-		variables: { novelId: id, name },
-		refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
+	const [addState] = useMutation(ADD_STATE, {
+		variables: { collegeId: id, name },
+		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
-	const [deleteAuthor] = useMutation(DELETE_AUTHOR, {
-		refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
+	const [deleteState] = useMutation(DELETE_STATE, {
+		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
-	const [updateNovel] = useMutation(UPDATE_NOVEL, {
+	const [updateCollege] = useMutation(UPDATE_COLLEGE, {
 		variables: { id: id, title: title, image: url },
-		refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
+		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
-	const novel: INovel = data?.novel;
+	const college: ICollege = data?.college;
 
-	const handleAddAuthor = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleAddState = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (name === "") return alert("Please enter author name");
-		addAuthor({ variables: { novelId: id, name } });
+		if (name === "") return alert("Please enter state name");
+		addState({ variables: { collegeId: id, name } });
 		setName("");
 	};
 
-	const handleUpdateNovel = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleUpdateCollege = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (title === "" || url === "") return alert("Please enter fields");
-		updateNovel({ variables: { id: id, title: title, image: url } });
+		updateCollege({ variables: { id: id, title: title, image: url } });
 		setTitle("");
 		setUrl("");
 	};
@@ -64,25 +64,25 @@ const Novel = ({ params: { id } }: Props) => {
 	return (
 		<article className="max-w-5xl mx-auto text-white">
 			<section className="flex gap-2 ">
-				{novel.image && (
-					<img height={200} width={200} src={novel.image} alt="" />
+				{college.image && (
+					<img height={200} width={200} src={college.image} alt="" />
 				)}
 
 				<div className="p-2 flex flex-col">
-					<h1 className="text-4xl ">Title : {novel.title}</h1>
+					<h1 className="text-4xl ">Title : {college.title}</h1>
 
 					<div className="flex gap-2">
-						{novel?.authors?.map((author) => (
+						{college?.states?.map((state) => (
 							<div
-								key={author.id}
+								key={state.id}
 								className="flex items-center gap-2"
 							>
-								<h2 className="font-bold">{author?.name}</h2>
+								<h2 className="font-bold">{state?.name}</h2>
 								<div
 									onClick={() =>
-										deleteAuthor({
+										deleteState({
 											variables: {
-												id: author.id,
+												id: state.id,
 											},
 										})
 									}
@@ -101,26 +101,26 @@ const Novel = ({ params: { id } }: Props) => {
 						ipsam corrupti ipsum quaerat? Sed hic ipsum excepturi
 						earum minus consectetur soluta totam temporibus libero.
 					</p>
-					{/* add author form */}
-					<form onSubmit={handleAddAuthor} className="mt-5 space-x-2">
+					{/* add state form */}
+					<form onSubmit={handleAddState} className="mt-5 space-x-2">
 						<input
 							value={name}
 							onChange={(e) => setName(e.target.value)}
 							type="text"
-							placeholder="Enter Author"
+							placeholder="Enter State"
 							className="bg-transparent border p-2 mx-2"
 						/>
 						<button
 							disabled={!name}
 							className="border p-2 rounded-lg disabled:text-gray-500 disabled:cursor-not-allowed"
 						>
-							Add Author
+							Add State
 						</button>
 					</form>
 				</div>
 			</section>
 			{/* update form */}
-			<form onSubmit={handleUpdateNovel} className="flex gap-2 ">
+			<form onSubmit={handleUpdateCollege} className="flex gap-2 ">
 				<input
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
@@ -141,4 +141,4 @@ const Novel = ({ params: { id } }: Props) => {
 	);
 };
 
-export default Novel;
+export default College;

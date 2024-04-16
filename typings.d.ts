@@ -1,5 +1,5 @@
-import { Author, Novel } from "@prisma/client";
+import {State, College } from "@prisma/client";
 
-interface INovel extends Novel {
-	authors: Author[];
+interface ICollege extends College {
+	states:State[];
 }

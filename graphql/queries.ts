@@ -1,29 +1,29 @@
 import { gql } from "@apollo/client";
 
-export const GET_NOVELS = gql`
-	query Novels {
-		novels {
+export const GET_COLLEGES = gql`
+	query Colleges {
+		colleges {
 			id
 			image
 			createdAt
 			title
 			updatedAt
-			authors {
+			states {
 				id
 				name
-				novelId
+				collegeId
 			}
 		}
 	}
 `;
 
-export const GET_NOVEL = gql`
-	query Novel($id: ID!) {
-		novel(id: $id) {
-			authors {
+export const GET_COLLEGE = gql`
+	query College($id: ID!) {
+		college(id: $id) {
+			states {
 				id
 				name
-				novelId
+				collegeId
 			}
 			id
 			image

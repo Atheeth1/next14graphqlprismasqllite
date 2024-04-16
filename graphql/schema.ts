@@ -1,30 +1,30 @@
 export const typeDefs = `#graphql 
-    type Novel {
+    type College {
     id: ID!
     title: String
     image: String
     createdAt: String
     updatedAt: String
-    authors: [Author]
+   states: [State]
   }
 
-    type Author {
+    type State {
     id: ID!
     name: String
-    novelId: String
+   collegeId: String
   }
 
   type Query {
-	novel(id: ID!): Novel 
-    novels: [Novel]
+	college(id: ID!):College 
+   colleges: [College]
 
   }
 
   type Mutation {
-    addNovel (image:String, title:String) : Novel
-    updateNovel(id:ID!, title:String, image:String) : Novel
-    deleteNovel(id:ID!) : Novel
-    addAuthor(novelId:ID!, name:String): Author
-    deleteAuthor(id:ID!): Author
+    addCollege (image:String, title:String) :College
+    updateCollege(id:ID!, title:String, image:String) :College
+    deleteCollege(id:ID!) :College
+    addState(collegeId:ID!, name:String):State
+    deleteState(id:ID!):State
   }
 `;

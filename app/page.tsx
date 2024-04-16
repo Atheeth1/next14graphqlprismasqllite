@@ -1,9 +1,9 @@
-import { Novels } from "../components/Novels";
+import { Colleges } from "../components/Colleges";
 export default function Home() {
 	return (
 		<div className=" max-w-5xl mx-auto ">
 			{" "}
-			<Novels />{" "}
+			<Colleges />{" "}
 		</div>
 	);
 }

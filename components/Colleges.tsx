@@ -1,29 +1,29 @@
 "use client";
 import React, { FormEvent, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_NOVELS } from "@/graphql/queries";
+import { GET_COLLEGES } from "@/graphql/queries";
 
-import { INovel } from "@/typings";
-import { Novel } from "./Novel";
+import { ICollege } from "@/typings";
+import { College } from "./College";
 
-import { ADD_NOVEL } from "@/graphql/mutations";
+import { ADD_COLLEGE } from "@/graphql/mutations";
 
-export const Novels = () => {
+export const Colleges = () => {
 	const [title, setTitle] = useState("");
 	const [image, setImage] = useState("");
-	const { data, loading, error } = useQuery(GET_NOVELS);
-	const [addNovel] = useMutation(ADD_NOVEL, {
+	const { data, loading, error } = useQuery(GET_COLLEGES);
+	const [addCollege] = useMutation(ADD_COLLEGE, {
 		variables: { image, title },
-		refetchQueries: [{ query: GET_NOVELS }],
+		refetchQueries: [{ query: GET_COLLEGES }],
 	});
 
-	const novels: INovel[] = data?.novels;
+	const colleges: ICollege[] = data?.colleges;
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (image === "" || title === "") return alert("Enter fields");
 
-		addNovel({ variables: { image, title } });
+		addCollege({ variables: { image, title } });
 		setTitle("");
 		setImage("");
 	};
@@ -59,12 +59,12 @@ export const Novels = () => {
 					className="bg-transparent border text-white p-2 rounded-lg"
 				/>
 				<button className="bg-yellow-500 p-2 rounded-lg ">
-					Add Novel
+					Add College
 				</button>
 			</form>
 			<div className="grid grid-cols-4 gap-2">
-				{novels.map((novel) => (
-					<Novel key={novel.id} novel={novel} />
+				{colleges.map((college) => (
+					<College key={college.id} college={college} />
 				))}
 			</div>
 		</div>
