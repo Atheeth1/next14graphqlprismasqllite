@@ -47,7 +47,7 @@ export const College = ({ college }: Props) => {
 			</div>
 			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
 				<p className="text-red text-lg">
-					Private :{college?.privates.length}
+					Private :{college?.privatemnts.length}
 				</p>
 			</div>
 			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">

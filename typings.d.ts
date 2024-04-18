@@ -5,6 +5,6 @@ interface ICollege extends College {
 	aideds:Aided[];
 	governments:Government[];
 	countrys:Covntry[];
-	privates:Private[];
+	privatemnts:Privatemnt[];
 	college_Types:College_Type[];
 }

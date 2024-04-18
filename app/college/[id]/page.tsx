@@ -13,17 +13,11 @@ type Props = {
 const College = ({ params: { id } }: Props) => {
 	const [title, setTitle] = useState("");
 	const [url, setUrl] = useState("");
-	const [namecountry, setNamecountry] = useState("");
-	const [nameaided, setNameaided] = useState("");
-	const [nameprivate, setNameprivate] = useState("");
-	const [namegovernment, setNamegovernment] = useState("");
+	
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [descriptionst, setDescriptionst] = useState("");
-	const [descriptioncountry, setDescriptionstcountry] = useState("");
-	const [descriptionaided, setDescriptionaided] = useState("");
-	const [descriptionprivate, setDescriptionprivate] = useState("");
-	const [descriptiongovernment, setDescriptionstgovernment] = useState("");
+	
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [location, setLocation] = useState("");
@@ -40,7 +34,7 @@ const College = ({ params: { id } }: Props) => {
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 	const [addGovernment] = useMutation(ADD_GOVERNMENT, {
-		variables: { collegeId: id, namegovernment,descriptiongovernment },
+		variables: { collegeId: id, name,descriptionst },
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
@@ -48,7 +42,7 @@ const College = ({ params: { id } }: Props) => {
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 	const [addAided] = useMutation(ADD_AIDED, {
-		variables: { collegeId: id, nameaided,descriptionaided },
+		variables: { collegeId: id, name,descriptionst },
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
@@ -56,19 +50,19 @@ const College = ({ params: { id } }: Props) => {
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 	const [addCountry] = useMutation(ADD_COUNTRY, {
-		variables: { collegeId: id, namecountry,descriptioncountry },
+		variables: { collegeId: id, name,descriptionst },
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
 	const [deleteCountry] = useMutation(DELETE_COUNTRY, {
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
-	const [addPrivate] = useMutation(ADD_PRIVATE, {
-		variables: { collegeId: id, nameprivate,descriptionprivate },
+	const [addPrivatemnt] = useMutation(ADD_PRIVATE, {
+		variables: { collegeId: id, name,descriptionst },
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
-	const [deletePrivate] = useMutation(DELETE_PRIVATE, {
+	const [deletePrivatemnt] = useMutation(DELETE_PRIVATE, {
 		refetchQueries: [{ query: GET_COLLEGE, variables: { id } }],
 	});
 
@@ -88,31 +82,31 @@ const College = ({ params: { id } }: Props) => {
 	};
 	const handleAddAided = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (nameaided === ""|| descriptionaided === "" ) return alert("Please enter Aided name");
-		addAided({ variables: { collegeId: id, nameaided,descriptionaided } });
-		setNameaided("");
-		setDescriptionaided("");
+		if (name === ""|| descriptionst === "" ) return alert("Please enter Aided name");
+		addAided({ variables: { collegeId: id, name,descriptionst } });
+		setName("");
+		setDescriptionst("");
 	};
 	const handleAddCountry = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (namecountry === ""|| descriptioncountry === "" ) return alert("Please enter Country name");
-		addCountry({ variables: { collegeId: id, namecountry,descriptioncountry } });
-		setNamecountry("");
-		setDescriptionstcountry("");
+		if (name === ""|| descriptionst === "" ) return alert("Please enter Country name");
+		addCountry({ variables: { collegeId: id, name,descriptionst } });
+		setName("");
+		setDescriptionst("");
 	};
-	const handleAddPrivate = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleAddPrivatemnt = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (nameprivate === ""|| descriptionprivate === "" ) return alert("Please enter Private name");
-		addPrivate({ variables: { collegeId: id, nameprivate,descriptionprivate } });
-		setNameprivate("");
-		setDescriptionprivate("");
+		if (name === ""|| descriptionst === "" ) return alert("Please enter Privatemnt name");
+		addPrivatemnt({ variables: { collegeId: id, name,descriptionst } });
+		setName("");
+		setDescriptionst("");
 	};
 	const handleAddGovernment = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (namegovernment === ""|| descriptiongovernment === "" ) return alert("Please enter Government name");
-		addGovernment({ variables: { collegeId: id, namegovernment,descriptiongovernment } });
-		setNamegovernment("");
-		setDescriptionstgovernment("");
+		if (name === ""|| descriptionst === "" ) return alert("Please enter Government name");
+		addGovernment({ variables: { collegeId: id, name,descriptionst } });
+		setName("");
+		setDescriptionst("");
 	};
 
 
@@ -226,8 +220,8 @@ const College = ({ params: { id } }: Props) => {
 								key={government.id}
 								className="flex items-center gap-2"
 							>
-								    <h2 className="font-bold">{government?.namegovernment}</h2>
-					<h2 className="font-bold">{government?.descriptiongovernment}</h2>
+								    <h2 className="font-bold">{government?.name}</h2>
+					<h2 className="font-bold">{government?.descriptionst}</h2>
 						<div
 							onClick={() =>
 								deleteCountry({
@@ -243,19 +237,19 @@ const College = ({ params: { id } }: Props) => {
 						))}
 					</div>
 
-					{/* <div className="flex gap-2">
-						{college?.privates?.map((private) => (
+					<div className="flex gap-2">
+						{college?.privatemnts?.map((privatemnt) => (
 							<div
-								key={private.id}
+								key={privatemnt.id}
 								className="flex items-center gap-2"
 								>
-								<h2 className="font-bold">{private?.nameprivate}</h2>
-								<h2 className="font-bold">{private?.descriptionprivate}</h2>
+								<h2 className="font-bold">{privatemnt?.name}</h2>
+								<h2 className="font-bold">{privatemnt?.descriptionst}</h2>
 								<div
 									onClick={() =>
-										deletePrivate({
+										deletePrivatemnt({
 											variables: {	
-												id: private.id,
+												id: privatemnt.id,
 											},
 										})
 									}
@@ -264,7 +258,7 @@ const College = ({ params: { id } }: Props) => {
 							
 							</div>
 						))}
-					</div> */}
+					</div>
 
 					<p className="text-slate-400 ">
 					{college.description}
@@ -295,15 +289,15 @@ const College = ({ params: { id } }: Props) => {
 					{/* add Country form */}
 					<form onSubmit={handleAddCountry} className="mt-5 space-y-2">
 						<input
-							value={namecountry}
-							onChange={(e) => setNamecountry(e.target.value)}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
 							type="text"
 							placeholder="Enter Country"
 							className="bg-transparent border p-2 mx-2"
 						/>
 								<input
-							value={descriptioncountry}
-							onChange={(e) =>setDescriptionstcountry(e.target.value)}
+							value={descriptionst}
+							onChange={(e) =>setDescriptionst(e.target.value)}
 							type="text"
 							placeholder="Enter Country Description"
 							className="bg-transparent border p-2 mx-2"
@@ -319,15 +313,15 @@ const College = ({ params: { id } }: Props) => {
 					{/* add Aided form */}
 					<form onSubmit={handleAddAided} className="mt-5 space-y-2">
 						<input
-							value={nameaided}
-							onChange={(e) => setNameaided(e.target.value)}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
 							type="text"
 							placeholder="Enter Aided"
 							className="bg-transparent border p-2 mx-2"
 						/>
 								<input
-							value={descriptionaided}
-							onChange={(e) =>setDescriptionaided(e.target.value)}
+							value={descriptionst}
+							onChange={(e) =>setDescriptionst(e.target.value)}
 							type="text"
 							placeholder="Enter Aided Description"
 							className="bg-transparent border p-2 mx-2"
@@ -342,15 +336,15 @@ const College = ({ params: { id } }: Props) => {
 					{/* add Government form */}
 					<form onSubmit={handleAddGovernment} className="mt-5 space-y-2">
 						<input
-							value={namegovernment}
-							onChange={(e) => setNamegovernment(e.target.value)}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
 							type="text"
 							placeholder="Enter Government"
 							className="bg-transparent border p-2 mx-2"
 						/>
 								<input
-							value={descriptiongovernment}
-							onChange={(e) =>setDescriptionstgovernment(e.target.value)}
+							value={descriptionst}
+							onChange={(e) =>setDescriptionst(e.target.value)}
 							type="text"
 							placeholder="Enter Government Description"
 							className="bg-transparent border p-2 mx-2"
@@ -363,27 +357,27 @@ const College = ({ params: { id } }: Props) => {
 						</button>
 					</form>
 
-	               {/* add Private form */}
-	              <form onSubmit={handleAddPrivate} className="mt-5 space-y-2">
+	               {/* add Privatemnt form */}
+	              <form onSubmit={handleAddPrivatemnt} className="mt-5 space-y-2">
 						<input
-							value={nameprivate}
-							onChange={(e) => setNameprivate(e.target.value)}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
 							type="text"
-							placeholder="Enter Private"
+							placeholder="Enter Privatemnt"
 							className="bg-transparent border p-2 mx-2"
 						/>
 								<input
-							value={descriptionprivate}
-							onChange={(e) =>setDescriptionprivate(e.target.value)}
+							value={descriptionst}
+							onChange={(e) =>setDescriptionst(e.target.value)}
 							type="text"
-							placeholder="Enter Private Description"
+							placeholder="Enter Privatemnt Description"
 							className="bg-transparent border p-2 mx-2"
 						/>
 						<button
 							disabled={!name}
 							className="border p-2 rounded-lg disabled:text-gray-500 disabled:cursor-not-allowed"
 						>
-							Add Private
+							Add Privatemnt
 						</button>
 					</form>
 

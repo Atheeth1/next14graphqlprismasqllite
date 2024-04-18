@@ -15,7 +15,7 @@ export const typeDefs = `#graphql
    countrys:[Country]
    governments:[Government]
    aideds:[Aided]
-   privates:[Private]
+   privatemnts:[Privatemnt]
    college_Types:[College_Type]
   }
 
@@ -28,26 +28,26 @@ export const typeDefs = `#graphql
 
   type Country {
     id: ID!
-    namecountry: String
-    descriptioncountry:String
+    name: String
+    descriptionst:String
     collegeId: String
   }
   type Government {
     id: ID!
-    namegovernment: String
-    descriptiongovernment:String
+    name: String
+   descriptionst:String
     collegeId: String
   }
   type Aided {
     id: ID!
-    nameaided: String
-    descriptionaided:String
+    name: String
+    descriptionst:String
     collegeId: String
   }
-  type Private {
+  type Privatemnt {
     id: ID!
-    nameprivate: String
-    descriptionprivate:String
+    name: String
+    descriptionst:String
     collegeId: String
   }
   type College_Type {
@@ -64,7 +64,7 @@ export const typeDefs = `#graphql
     country:[Country]
     governments:[Government]
     aideds:[Aided]
-    private:[Private]
+    privatemnt:[Privatemnt]
     college_type:[College_Type]
 
   }
@@ -77,16 +77,16 @@ export const typeDefs = `#graphql
     addState(collegeId:ID!, name:String,descriptionst:String):State
     deleteState(id:ID!):State
 
-    addPrivate(collegeId:ID!, nameprivate:String,descriptionprivate:String):Private
-    deletePrivate(id:ID!):Private
+    addPrivatemnt(collegeId:ID!, name:String,descriptionst:String):Privatemnt
+    deletePrivatemnt(id:ID!):Privatemnt
 
-    addAided(collegeId:ID!, nameaided:String,descriptionaided:String):Aided
+    addAided(collegeId:ID!, name:String,descriptionst:String):Aided
     deleteAided(id:ID!):Aided
 
-    addGovernment(collegeId:ID!, namegovernment:String,descriptiongovernment:String):Government
+    addGovernment(collegeId:ID!, name:String,descriptionst:String):Government
     deleteGovernment(id:ID!):Government
 
-  addCountry(collegeId:ID!, namecountry:String,descriptioncountry:String):Country
+  addCountry(collegeId:ID!, name:String,descriptionst:String):Country
     deleteCountry(id:ID!):Country
 
     addCollege_Type(collegeId:ID!, name:String,descriptionst:String):College_Type

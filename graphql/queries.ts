@@ -20,26 +20,26 @@ export const GET_COLLEGES = gql`
 			}
 			countrys {
 				id
-				namecountry
-				descriptioncountry
+				name
+				descriptionst
 				collegeId
 			}
 			governments {
 				id
-				namegovernment
-				descriptiongovernemnt
+				name
+				descriptionst
 				collegeId
 			}
 			aideds {
 				id
-				nameaided
-				descriptionaided
+				name
+				descriptionst
 				collegeId
 			}
-			privates {
+			privatemnts {
 				id
-				nameprivate
-				descriptionprivate
+				name
+				descriptionst
 				collegeId
 			}
 			college_Types {
@@ -63,26 +63,26 @@ export const GET_COLLEGE = gql`
 			}
 			countrys {
 				id
-				namecountry
-				descriptioncountry
+				name
+				descriptionst
 				collegeId
 			}
 			governments {
 				id
-				namegovernment
-				descriptiongovernment
+				name
+				descriptionst
 				collegeId
 			}
 			aideds {
 				id
-				nameaided
-				descriptionaided
+				name
+				descriptionst
 				collegeId
 			}
-			privates {
+			privatemnts {
 				id
-				nameprivate
-				descriptionprivate
+				name
+				descriptionst
 				collegeId
 			}
 			college_Types {

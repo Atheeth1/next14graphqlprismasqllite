@@ -11,26 +11,26 @@ export const ADD_COLLEGE = gql`
 			}
 			countrys {
 				id
-				namecountry
-				descriptioncountry
+				name
+				descriptionst
 				collegeId
 			}
 			governments {
 				id
-				namegovernment
-				descriptiongovernment
+				name
+				descriptionst
 				collegeId
 			}
 			aideds {
 				id
-				nameaided
-				descriptionaided
+				name
+				descriptionst
 				collegeId
 			}
-			privates {
+			privatemnts {
 				id
-				nameprivate
-				descriptionprivate
+				name
+				descriptionst
 				collegeId
 			}
 			college_Types {
@@ -105,11 +105,11 @@ export const DELETE_STATE = gql`
 
 
 export const ADD_AIDED= gql`
-	mutation Mutation($collegeId: ID!, $nameaided: String,$descriptionaided: String) {
-		addAided(collegeId: $collegeId, nameaided: $nameaided,descriptionaided:$descriptionaided) {
+	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
+		addAided(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
 			id
-			nameaided
-			descriptionaided
+			name
+			descriptionst
 			collegeId
 		}
 	}
@@ -120,19 +120,19 @@ export const DELETE_AIDED = gql`
 	mutation Mutation($id: ID!) {
 		deleteAided(id: $id) {
 			id
-			nameaided
-			descriptionaided
+			name
+			descriptionst
 			collegeId
 		}
 	}
 `;
 
 export const ADD_PRIVATE= gql`
-	mutation Mutation($collegeId: ID!, $nameprivate: String,$descriptionprivate: String) {
-		addPrivate(collegeId: $collegeId, nameprivate: $nameprivate,descriptionprivate:$descriptionprivate) {
+	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
+		addPrivatemnt(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
 			id
-			nameprivate
-			descriptionprivate
+			name
+			descriptionst
 			collegeId
 		}
 	}
@@ -141,21 +141,21 @@ export const ADD_PRIVATE= gql`
 
 export const DELETE_PRIVATE = gql`
 	mutation Mutation($id: ID!) {
-		deletePrivate(id: $id) {
+		deletePrivatemnt(id: $id) {
 			id
-			nameprivate
-			descriptionprivate
+			name
+			descriptionst
 			collegeId
 		}
 	}
 `;
 
 export const ADD_COUNTRY= gql`
-	mutation Mutation($collegeId: ID!, $namecountry: String,$descriptioncountry: String) {
-		addCountry(collegeId: $collegeId, namecountry: $namecountry,descriptioncountry:$descriptioncountry) {
+	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
+		addCountry(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
 			id
-			namecountry
-			descriptioncountry
+			name
+			descriptionst
 			collegeId
 		}
 	}
@@ -166,19 +166,19 @@ export const DELETE_COUNTRY = gql`
 	mutation Mutation($id: ID!) {
 		deleteCountry(id: $id) {
 			id
-			namecountry
-			descriptioncountry
+			name
+			descriptionst
 			collegeId
 		}
 	}
 `;
 
 export const ADD_GOVERNMENT= gql`
-	mutation Mutation($collegeId: ID!, $namegovernment: String,$descriptiongovernment: String) {
-		addGovernment(collegeId: $collegeId, namegovernment: $namegovernment,descriptiongovernment:$descriptiongovernment) {
+	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
+		addGovernment(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
 			id
-			namegovernment
-			descriptiongovernment
+			name
+			descriptionst
 			collegeId
 		}
 	}
@@ -189,8 +189,8 @@ export const DELETE_GOVERNMENT = gql`
 	mutation Mutation($id: ID!) {
 		deleteGovernment(id: $id) {
 			id
-			namegovernment
-			descriptiongovernment
+			name
+			descriptionst
 			collegeId
 		}
 	}
