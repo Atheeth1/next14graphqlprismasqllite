@@ -32,15 +32,37 @@ export const College = ({ college }: Props) => {
 			<h1 className="font-bold text-xl my-2">{college.title}</h1>
 			{/* description */}
 			<p className="text-xs my-2 line-clamp-3">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-				ab recusandae repudiandae ratione quia voluptatibus tempora
-				dolores, veritatis cum, soluta numquam voluptatum earum
-				obcaecati illum dolor. Fuga incidunt maxime culpa.
+			{college.description}
 			</p>
 			{/* source and date */}
 			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
 				<p className="text-red text-lg">
 					States :{college?.states.length}
+				</p>
+			</div>
+			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
+				<p className="text-red text-lg">
+					Aided :{college?.aideds.length}
+				</p>
+			</div>
+			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
+				<p className="text-red text-lg">
+					Private :{college?.privates.length}
+				</p>
+			</div>
+			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
+				<p className="text-red text-lg">
+					College_Type :{college?.college_Types.length}
+				</p>
+			</div>
+			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
+				<p className="text-red text-lg">
+					Country :{college?.countrys.length}
+				</p>
+			</div>
+			<div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
+				<p className="text-red text-lg">
+				Government :{college?.governments.length}
 				</p>
 			</div>
 			<Link

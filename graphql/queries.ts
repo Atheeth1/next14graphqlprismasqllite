@@ -5,12 +5,47 @@ export const GET_COLLEGES = gql`
 		colleges {
 			id
 			image
-			createdAt
 			title
+			description
+			email
+			phone
+			location
+			createdAt
 			updatedAt
 			states {
 				id
 				name
+				descriptionst
+				collegeId
+			}
+			countrys {
+				id
+				namecountry
+				descriptioncountry
+				collegeId
+			}
+			governments {
+				id
+				namegovernment
+				descriptiongovernemnt
+				collegeId
+			}
+			aideds {
+				id
+				nameaided
+				descriptionaided
+				collegeId
+			}
+			privates {
+				id
+				nameprivate
+				descriptionprivate
+				collegeId
+			}
+			college_Types {
+				id
+				name
+				descriptionst
 				collegeId
 			}
 		}
@@ -23,11 +58,46 @@ export const GET_COLLEGE = gql`
 			states {
 				id
 				name
+				descriptionst
+				collegeId
+			}
+			countrys {
+				id
+				namecountry
+				descriptioncountry
+				collegeId
+			}
+			governments {
+				id
+				namegovernment
+				descriptiongovernment
+				collegeId
+			}
+			aideds {
+				id
+				nameaided
+				descriptionaided
+				collegeId
+			}
+			privates {
+				id
+				nameprivate
+				descriptionprivate
+				collegeId
+			}
+			college_Types {
+				id
+				name
+				descriptionst
 				collegeId
 			}
 			id
 			image
 			title
+			description
+			email
+			phone
+			location
 		}
 	}
 `;

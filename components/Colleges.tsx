@@ -11,9 +11,13 @@ import { ADD_COLLEGE } from "@/graphql/mutations";
 export const Colleges = () => {
 	const [title, setTitle] = useState("");
 	const [image, setImage] = useState("");
+	const [description, setDescription] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [location, setLocation] = useState("");
 	const { data, loading, error } = useQuery(GET_COLLEGES);
 	const [addCollege] = useMutation(ADD_COLLEGE, {
-		variables: { image, title },
+		variables: { image, title,description,email,phone,location },
 		refetchQueries: [{ query: GET_COLLEGES }],
 	});
 
@@ -21,11 +25,16 @@ export const Colleges = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (image === "" || title === "") return alert("Enter fields");
+		if (image === "" || title === "" || description === "" || email === "" || phone === "" || location === "") return alert("Enter fields");
 
-		addCollege({ variables: { image, title } });
+		addCollege({ variables: { image, title, description,email,phone,location } });
 		setTitle("");
 		setImage("");
+		setDescription("");
+		setEmail("");
+		setPhone("");
+		setLocation("");
+
 	};
 
 	if (loading)
@@ -43,7 +52,7 @@ export const Colleges = () => {
 
 	return (
 		<div className="mt-5">
-			<form onSubmit={handleSubmit} className="flex my-5 space-x-3">
+			<form onSubmit={handleSubmit} className="flex flex-col gap-2 my-5 space-y-3">
 				<input
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
@@ -56,6 +65,34 @@ export const Colleges = () => {
 					onChange={(e) => setImage(e.target.value)}
 					type="text"
 					placeholder="Enter Image url"
+					className="bg-transparent border text-white p-2 rounded-lg"
+				/>
+				<input
+					value={ description}
+					onChange={(e) =>setDescription(e.target.value)}
+					type="text"
+					placeholder="Enter Description"
+					className="bg-transparent border text-white p-2 rounded-lg"
+				/>
+				<input
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+					type="text"
+					placeholder="Enter Email"
+					className="bg-transparent border text-white p-2 rounded-lg"
+				/>
+				<input
+					value={phone}
+					onChange={(e) => setPhone(e.target.value)}
+					type="text"
+					placeholder="Enter Phone"
+					className="bg-transparent border text-white p-2 rounded-lg"
+				/>
+				<input
+					value={location}
+					onChange={(e) => setLocation(e.target.value)}
+					type="text"
+					placeholder="Enter Location"
 					className="bg-transparent border text-white p-2 rounded-lg"
 				/>
 				<button className="bg-yellow-500 p-2 rounded-lg ">
