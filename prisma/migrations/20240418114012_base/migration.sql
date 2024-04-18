@@ -25,8 +25,8 @@ CREATE TABLE "State" (
 -- CreateTable
 CREATE TABLE "Country" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "descriptionst" TEXT NOT NULL,
+    "namecountry" TEXT NOT NULL,
+    "descriptioncountry" TEXT NOT NULL,
     "collegeId" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
@@ -36,8 +36,8 @@ CREATE TABLE "Country" (
 -- CreateTable
 CREATE TABLE "Government" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "descriptionst" TEXT NOT NULL,
+    "namegovernment" TEXT NOT NULL,
+    "descriptiongovernment" TEXT NOT NULL,
     "collegeId" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
@@ -47,8 +47,8 @@ CREATE TABLE "Government" (
 -- CreateTable
 CREATE TABLE "Aided" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "descriptionst" TEXT NOT NULL,
+    "nameaided" TEXT NOT NULL,
+    "descriptionaided" TEXT NOT NULL,
     "collegeId" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
@@ -58,8 +58,8 @@ CREATE TABLE "Aided" (
 -- CreateTable
 CREATE TABLE "Privatemnt" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "descriptionst" TEXT NOT NULL,
+    "nameprivatemnt" TEXT NOT NULL,
+    "descriptionprivatemnt" TEXT NOT NULL,
     "collegeId" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
@@ -81,16 +81,16 @@ CREATE TABLE "College_Type" (
 CREATE UNIQUE INDEX "State_name_key" ON "State"("name");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Country_name_key" ON "Country"("name");
+CREATE UNIQUE INDEX "Country_namecountry_key" ON "Country"("namecountry");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Government_name_key" ON "Government"("name");
+CREATE UNIQUE INDEX "Government_namegovernment_key" ON "Government"("namegovernment");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Aided_name_key" ON "Aided"("name");
+CREATE UNIQUE INDEX "Aided_nameaided_key" ON "Aided"("nameaided");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Privatemnt_name_key" ON "Privatemnt"("name");
+CREATE UNIQUE INDEX "Privatemnt_nameprivatemnt_key" ON "Privatemnt"("nameprivatemnt");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "College_Type_name_key" ON "College_Type"("name");

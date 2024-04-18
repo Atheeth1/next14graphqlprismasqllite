@@ -134,8 +134,8 @@ export const resolvers = {
       return await context.prisma.country.create({
         data: {
           collegeId: args.collegeId,
-          name: args.name,
-          descriptionst: args.descriptionst,
+          namecountry: args.namecountry,
+          descriptioncountry: args.descriptioncountry,
         },
       });
     },
@@ -155,8 +155,8 @@ export const resolvers = {
       return await context.prisma.government.create({
         data: {
           collegeId: args.collegeId,
-          name: args.name,
-          descriptionst: args.descriptionst,
+          namegovernment: args. namegovernment,
+          descriptiongovernment: args.descriptiongovernment,
         },
       });
     },
@@ -176,8 +176,8 @@ export const resolvers = {
       return await context.prisma.aided.create({
         data: {
           collegeId: args.collegeId,
-          name: args.name,
-          descriptionst: args.descriptionst,
+          nameaided: args.nameaided,
+          descriptionaided: args.descriptionaided,
         },
       });
     },
@@ -197,8 +197,8 @@ export const resolvers = {
       return await context.prisma.privatemnt.create({
         data: {
           collegeId: args.collegeId,
-          name: args.name,
-          descriptionst: args.descriptionst,
+          nameprivatemnt: args.nameprivatemnt,
+          descriptionprivatemnt: args.descriptionprivatemnt,
         },
       });
     },

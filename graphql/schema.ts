@@ -28,26 +28,26 @@ export const typeDefs = `#graphql
 
   type Country {
     id: ID!
-    name: String
-    descriptionst:String
+    namecountry: String
+    descriptioncountry:String
     collegeId: String
   }
   type Government {
     id: ID!
-    name: String
-   descriptionst:String
+    namegovernment: String
+    descriptiongovernment:String
     collegeId: String
   }
   type Aided {
     id: ID!
-    name: String
-    descriptionst:String
+    nameaided: String
+    descriptionaided:String
     collegeId: String
   }
   type Privatemnt {
     id: ID!
-    name: String
-    descriptionst:String
+    nameprivatemnt: String
+    descriptionprivatemnt:String
     collegeId: String
   }
   type College_Type {
@@ -77,16 +77,16 @@ export const typeDefs = `#graphql
     addState(collegeId:ID!, name:String,descriptionst:String):State
     deleteState(id:ID!):State
 
-    addPrivatemnt(collegeId:ID!, name:String,descriptionst:String):Privatemnt
+    addPrivatemnt(collegeId:ID!, nameprivatemnt:String,descriptionprivatemnt:String):Privatemnt
     deletePrivatemnt(id:ID!):Privatemnt
 
-    addAided(collegeId:ID!, name:String,descriptionst:String):Aided
+    addAided(collegeId:ID!, nameaided:String,descriptionaided:String):Aided
     deleteAided(id:ID!):Aided
 
-    addGovernment(collegeId:ID!, name:String,descriptionst:String):Government
+    addGovernment(collegeId:ID!,  namegovernment:String,descriptiongovernment:String):Government
     deleteGovernment(id:ID!):Government
 
-  addCountry(collegeId:ID!, name:String,descriptionst:String):Country
+  addCountry(collegeId:ID!,namecountry:String,descriptioncountry:String):Country
     deleteCountry(id:ID!):Country
 
     addCollege_Type(collegeId:ID!, name:String,descriptionst:String):College_Type

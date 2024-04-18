@@ -40,43 +40,43 @@ model State {
 }
 
 model Country {
-  id            String   @id @default(uuid())
-  name          String   @unique
-  descriptionst String
-  College       College? @relation(fields: [collegeId], references: [id])
-  collegeId     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                 String   @id @default(uuid())
+  namecountry        String   @unique
+  descriptioncountry String
+  College            College? @relation(fields: [collegeId], references: [id])
+  collegeId          String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model Government {
-  id            String   @id @default(uuid())
-  name          String   @unique
-  descriptionst String
-  College       College? @relation(fields: [collegeId], references: [id])
-  collegeId     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                    String   @id @default(uuid())
+  namegovernment        String   @unique
+  descriptiongovernment String
+  College               College? @relation(fields: [collegeId], references: [id])
+  collegeId             String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
 }
 
 model Aided {
-  id            String   @id @default(uuid())
-  name          String   @unique
-  descriptionst String
-  College       College? @relation(fields: [collegeId], references: [id])
-  collegeId     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id               String   @id @default(uuid())
+  nameaided        String   @unique
+  descriptionaided String
+  College          College? @relation(fields: [collegeId], references: [id])
+  collegeId        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 model Privatemnt {
-  id            String   @id @default(uuid())
-  name          String   @unique
-  descriptionst String
-  College       College? @relation(fields: [collegeId], references: [id])
-  collegeId     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                 String   @id @default(uuid())
+  nameprivatemnt        String   @unique
+  descriptionprivatemnt String
+  College            College? @relation(fields: [collegeId], references: [id])
+  collegeId          String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model College_Type {
