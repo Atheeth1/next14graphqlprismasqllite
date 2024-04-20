@@ -27,7 +27,7 @@ export const GET_COLLEGES = gql`
 			governments {
 				id
 				namegovernment
-				descriptionnamegovernment
+				descriptiongovernment
 				collegeId
 			}
 			aideds {
@@ -70,7 +70,7 @@ export const GET_COLLEGE = gql`
 			governments {
 				id
 				namegovernment
-				descriptionnamegovernment
+				descriptiongovernment
 				collegeId
 			}
 			aideds {

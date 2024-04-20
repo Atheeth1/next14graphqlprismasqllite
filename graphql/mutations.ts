@@ -17,8 +17,8 @@ export const ADD_COLLEGE = gql`
 			}
 			governments {
 				id
-				name
-				descriptionst
+				namegovernment
+				descriptiongovernment
 				collegeId
 			}
 			aideds {
@@ -105,8 +105,8 @@ export const DELETE_STATE = gql`
 
 
 export const ADD_AIDED= gql`
-	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
-		addAided(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
+	mutation Mutation($collegeId: ID!, $nameaided: String,$descriptionaided: String) {
+		addAided(collegeId:$collegeId, nameaided:$nameaided,descriptionaided:$descriptionaided) {
 			id
 			nameaided
 			descriptionaided
@@ -128,8 +128,8 @@ export const DELETE_AIDED = gql`
 `;
 
 export const ADD_PRIVATE= gql`
-	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
-		addPrivatemnt(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
+	mutation Mutation($collegeId: ID!, $nameprivatemnt: String,$descriptionprivatemnt: String) {
+		addPrivatemnt(collegeId: $collegeId, nameprivatemnt: $nameprivatemnt,descriptionprivatemnt:$descriptionprivatemnt) {
 			id
 			nameprivatemnt
 			descriptionprivatemnt
@@ -151,8 +151,8 @@ export const DELETE_PRIVATE = gql`
 `;
 
 export const ADD_COUNTRY= gql`
-	mutation Mutation($collegeId: ID!, $name: String,$descriptionst: String) {
-		addCountry(collegeId: $collegeId, name: $name,descriptionst:$descriptionst) {
+	mutation Mutation($collegeId: ID!, $namecountry: String,$descriptioncountry: String) {
+		addCountry(collegeId: $collegeId,namecountry: $namecountry,descriptioncountry:$descriptioncountry) {
 			id
 			namecountry
 			descriptioncountry
@@ -174,7 +174,7 @@ export const DELETE_COUNTRY = gql`
 `;
 
 export const ADD_GOVERNMENT= gql`
-	mutation Mutation($collegeId: ID!, $ namegovernment: String,$descriptiongovernment: String) {
+	mutation Mutation($collegeId: ID!, $namegovernment: String,$descriptiongovernment: String) {
 		addGovernment(collegeId: $collegeId, namegovernment: $namegovernment,descriptiongovernment:$descriptiongovernment) {
 			id
 			namegovernment

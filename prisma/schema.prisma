@@ -24,7 +24,7 @@ model College {
   country      Country[]
   government   Government[]
   aided        Aided[]
-  privatemnt      Privatemnt[]
+  privatemnt   Privatemnt[]
   college_type College_Type[]
 }
 
@@ -70,13 +70,13 @@ model Aided {
 }
 
 model Privatemnt {
-  id                 String   @id @default(uuid())
+  id                    String   @id @default(uuid())
   nameprivatemnt        String   @unique
   descriptionprivatemnt String
-  College            College? @relation(fields: [collegeId], references: [id])
-  collegeId          String?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  College               College? @relation(fields: [collegeId], references: [id])
+  collegeId             String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
 }
 
 model College_Type {

@@ -155,7 +155,7 @@ export const resolvers = {
       return await context.prisma.government.create({
         data: {
           collegeId: args.collegeId,
-          namegovernment: args. namegovernment,
+          namegovernment: args.namegovernment,
           descriptiongovernment: args.descriptiongovernment,
         },
       });

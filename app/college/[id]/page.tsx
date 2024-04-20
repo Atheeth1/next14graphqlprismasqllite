@@ -105,7 +105,7 @@ const College = ({ params: { id } }: Props) => {
 	};
 	const handleAddPrivatemnt = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (name === ""|| descriptionst === "" ) return alert("Please enter Privatemnt name");
+		if (nameprivatemnt === ""|| descriptionprivatemnt === "" ) return alert("Please enter Privatemnt name");
 		addPrivatemnt({ variables: { collegeId: id, nameprivatemnt,descriptionprivatemnt } });
 		setNameprivatemnt("");
 		setDescriptionprivatemnt("");
