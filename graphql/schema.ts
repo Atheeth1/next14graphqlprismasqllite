@@ -11,19 +11,19 @@ export const typeDefs = `#graphql
     location:String
     createdAt: String
     updatedAt: String
-   states: [State]
-   countrys:[Country]
-   governments:[Government]
-   aideds:[Aided]
-   privatemnts:[Privatemnt]
-   college_Types:[College_Type]
+    states: [State]
+    countrys:[Country]
+    governments:[Government]
+    aideds:[Aided]
+    privatemnts:[Privatemnt]
+    college_Types:[College_Type]
   }
 
     type State {
     id: ID!
     name: String
     descriptionst:String
-   collegeId: String
+    collegeId: String
   }
 
   type Country {
@@ -58,8 +58,8 @@ export const typeDefs = `#graphql
   }
 
   type Query {
-	 college(id: ID!):College 
-   colleges: [College]
+    college(id: ID!):College 
+    colleges: [College]
     states:[State]
     country:[Country]
     governments:[Government]
@@ -86,7 +86,7 @@ export const typeDefs = `#graphql
     addGovernment(collegeId:ID!,  namegovernment:String,descriptiongovernment:String):Government
     deleteGovernment(id:ID!):Government
 
-  addCountry(collegeId:ID!,namecountry:String,descriptioncountry:String):Country
+    addCountry(collegeId:ID!,namecountry:String,descriptioncountry:String):Country
     deleteCountry(id:ID!):Country
 
     addCollege_Type(collegeId:ID!, name:String,descriptionst:String):College_Type

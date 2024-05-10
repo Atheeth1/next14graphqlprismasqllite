@@ -1,5 +1,6 @@
 import { Colleges } from "@/components/Colleges"
 
+
 const dashboad = () => {
   return (
     <div>
